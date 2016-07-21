@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>WIP Twitch Viewer</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'>
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="content-overlay">
+    <div class="overlay">
+      <div class="loader middle centered">
+        <div id="fountainG">
+          <div id="fountainG_1" class="fountainG"></div>
+          <div id="fountainG_2" class="fountainG"></div>
+          <div id="fountainG_3" class="fountainG"></div>
+          <div id="fountainG_4" class="fountainG"></div>
+          <div id="fountainG_5" class="fountainG"></div>
+          <div id="fountainG_6" class="fountainG"></div>
+          <div id="fountainG_7" class="fountainG"></div>
+          <div id="fountainG_8" class="fountainG"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="side-panel">
+      <i class="toggle centered fa fa-chevron-right" aria-hidden="true"></i>
+      <h1 class="logo">Twitch Viewer</h1>
+      <h3 class="header">Streamers</h3>
+      <div id="streamer-panel">
+        <div id="online-streams"></div>
+        <div id="offline-streams"></div>
+        <div id="invalid-streams"></div>
+      </div>
+    </div>
+
+    <div id="content">
+      <div class="middle centered" id="welcome">
+        <h1>Welcome to Twitch Viewer.</h1>
+        <h3>Please select a streamer on the left.</h3>
+      </div>
+      <div id="embed" class="middle centered hidden ">
+        <div class="videowrapper">
+          <iframe src="" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+        </div>
+      </div>
+    </div>
+</body>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+<script src="js/index.js"></script>
+
+</html>
