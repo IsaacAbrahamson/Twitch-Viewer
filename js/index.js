@@ -1,23 +1,16 @@
 $(document).ready(function() {
-  //Page Loader
+  //Page Load
   jQuery(window).load(function() {
     $('.overlay').fadeOut('slow');
   });
 
-  //event handler for streamer panel
-  $(document.body).on('click', '.stream-container', function() {
-    if ($(this).parent().is('#offline-streams')) {
-      var streamer = $(this).find('.channel').text();
-      window.open('https://www.twitch.tv/' + streamer + '/profile', '_blank');
-    } else if ($(this).parent().is('#online-streams')) {
-      var streamer = $(this).find('.channel').text();
-      $('iframe').attr('src', 'https://player.twitch.tv/?channel=' + streamer);
-      $('#welcome').addClass('hidden');
-      $('#embed').removeClass('hidden');
-    }
-  });
-  
-  //Event handler for Streamer Panel Mobile
+  //Get data from Twitch api
+  var streamers = ["cretetion", "freecodecamp", "storbeck", "brunofin", "ESL_SC2", "Bacon_Donut", "habathcx", "OgamingSC2", "RobotCaleb", "noobs2ninjas", "QuickyBaby", "terakilobyte", "thomasballinger", "comster404", "itmeJP", "ZeeooN", "HiRezTV", "Wyld", "BySliDe", "Armor_tv", "GronkhTV"];
+  for (var index = 0; index < streamers.length; index++) {
+    getStream(streamers[index]);
+  }
+
+  //Toggle menu on small devices
   var toggle = false;
   $('.toggle').click(function() {
     $('#side-panel').css('width', '240px');
@@ -38,10 +31,18 @@ $(document).ready(function() {
     }
   });
 
-  var streamers = ["cretetion", "freecodecamp", "storbeck", "brunofin", "ESL_SC2", "Bacon_Donut", "habathcx", "OgamingSC2", "RobotCaleb", "noobs2ninjas", "QuickyBaby", "terakilobyte", "thomasballinger", "comster404", "itmeJP", "ZeeooN", "HiRezTV", "Wyld", "BySliDe", "Armor_tv", "GronkhTV"];
-  for (var index = 0; index < streamers.length; index++) {
-    getStream(streamers[index]);
-  }
+  //Event handler for streamer panel
+  $(document.body).on('click', '.stream-container', function() {
+    if ($(this).parent().is('#offline-streams')) {
+      var streamer = $(this).find('.channel').text();
+      window.open('https://www.twitch.tv/' + streamer + '/profile', '_blank');
+    } else if ($(this).parent().is('#online-streams')) {
+      var streamer = $(this).find('.channel').text();
+      $('iframe').attr('src', 'http://player.twitch.tv/?channel=' + streamer);
+      $('#welcome').addClass('hidden');
+      $('#embed').removeClass('hidden');
+    }
+  });  
 
   function getStream(streamer) {
     var channel = '';
@@ -49,14 +50,13 @@ $(document).ready(function() {
     var logo = '';
     var link = '';
 
-    //Handle invalid streamers
     $.getJSON('https://api.twitch.tv/kraken/channels/' + streamer + '?callback=?', function(object) {
       if (object.status === 422) { //Invalid Channel
         channel = streamer;
         logo = 'https://dl.dropbox.com/s/hryv6j9he297dw2/Octagon_delete.svg.png?dl=0';
-        $('#invalid-streams').append('<div class="stream-container"><div class="stream"><img src="' + logo + '"/><span class="channel">' + channel + '</span><span class="status">Invalid Account</span></div></div>');        
-        return;
+        $('#invalid-streams').append('<div class="stream-container"><div class="stream"><img src="' + logo + '"/><span class="channel">' + channel + '</span><span class="status">Invalid Account</span></div></div>');
       }
+      return;
     });
 
     $.getJSON('https://api.twitch.tv/kraken/streams/' + streamer + '?callback=?', function(object) {
