@@ -38,7 +38,7 @@ $(document).ready(function() {
       window.open('https://www.twitch.tv/' + streamer + '/profile', '_blank');
     } else if ($(this).parent().is('#online-streams')) {
       var streamer = $(this).find('.channel').text();
-      $('iframe').attr('src', 'http://player.twitch.tv/?channel=' + streamer);
+      $('iframe').attr('src', 'https://player.twitch.tv/?channel=' + streamer);
       $('#welcome').addClass('hidden');
       $('#embed').removeClass('hidden');
     }
