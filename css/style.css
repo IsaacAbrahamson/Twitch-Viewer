@@ -24,44 +24,7 @@
   src: url(https://dl.dropbox.com/s/d2jfh70au9iyb1d/HeadlinerNo.45%20DEMO.ttf?dl=0);
 }
 
-#content {
-  position: absolute;
-  min-height: 100vh;
-  overflow: hidden;
-  width: calc(100% - 240px);
-  margin-left: 240px;  
-}
-
-#content h3 {
-  font-size: 25px;
-  font-family: headliner, 'Open Sans';
-  line-height: 25px;
-}
-
-#content h1 {
-  font-family: headliner, 'Open Sans';
-  font-size: 80px;
-  line-height: 80px;
-}
-
-.header {
-  color: #cbc8d0;
-  font-size: 1.2rem;
-  margin-left: 15px;
-  margin-right: 15px;
-  text-transform: uppercase;
-  padding-bottom: 7px;
-  border-bottom: 1px solid rgb(46, 40, 60);
-}
-
-#side-panel {
-  width: 240px;  
-  transition: width .5s;
-  height: 100vh;
-  background-color: #17141f;
-  position: fixed;
-}
-
+/* Utility Classes */
 .middle {
   position: absolute;
   top: 50%;
@@ -76,13 +39,22 @@
   text-align: center;
 }
 
+.hidden {
+  display: none;
+}
+
+/* Side Panel */
+#side-panel {
+  width: 240px;  
+  transition: width .5s;
+  height: 100vh;
+  background-color: #17141f;
+  position: fixed;
+}
+
 #streamer-panel {
   overflow-y: scroll;
   height: calc(100% - 126px);
-}
-
-.hidden {
-  display: none;
 }
 
 .logo {
@@ -170,6 +142,45 @@
   top: 2px;
 }
 
+.toggle {
+  display: none;
+  font-size: 30px;
+  color: #cbc8d0;
+  position: absolute;
+  top: 20px;
+}
+
+/* Video Content */
+#content {
+  position: absolute;
+  min-height: 100vh;
+  overflow: hidden;
+  width: calc(100% - 240px);
+  margin-left: 240px;  
+}
+
+#content h3 {
+  font-size: 25px;
+  font-family: headliner, 'Open Sans';
+  line-height: 25px;
+}
+
+#content h1 {
+  font-family: headliner, 'Open Sans';
+  font-size: 80px;
+  line-height: 80px;
+}
+
+.header {
+  color: #cbc8d0;
+  font-size: 1.2rem;
+  margin-left: 15px;
+  margin-right: 15px;
+  text-transform: uppercase;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgb(46, 40, 60);
+}
+
 #embed {
   max-height: 90%!important;  
   margin-left: 20px;
@@ -192,34 +203,6 @@
   height: 100%;
 }
 
-button {
-  position: fixed;
-  float: right;
-  margin-right: 15px;
-  display: inline-block;
-  background-color: #6441a5;
-  color: #fff;
-  line-height: 2.5em;
-  padding: 0 .8em;
-  border: none;
-  font-size: 1em;
-  cursor: pointer;
-  outline: none;
-}
-
-button:hover {
-  text-decoration: none;
-  background-color: #7550ba;
-}
-
-.toggle {
-  display: none;
-  font-size: 30px;
-  color: #cbc8d0;
-  position: absolute;
-  top: 20px;
-}
-
 @media screen and (max-width:900px) {
   #side-panel {
     width: 40px;
@@ -238,6 +221,7 @@ button:hover {
     width: calc(100% - 40px);
   }
 }
+
 
 /* Page Loader */
 #content-overlay {
@@ -260,7 +244,7 @@ button:hover {
   height: 18px;
 }
 
-/* loader animation made with cssload.net  */
+/* Loader made with cssload.net */
 #fountainG {
   position: relative;
   width: 150px;
