@@ -1,8 +1,10 @@
 $(document).ready(function() {
+  //Page Loader
   jQuery(window).load(function() {
     $('.overlay').fadeOut('slow');
   });
 
+  //event handler for streamer panel
   $(document.body).on('click', '.stream-container', function() {
     if ($(this).parent().is('#offline-streams')) {
       var streamer = $(this).find('.channel').text();
@@ -26,13 +28,14 @@ $(document).ready(function() {
     var logo = '';
     var link = '';
 
+    //Handle invalid streamers
     $.getJSON('https://api.twitch.tv/kraken/channels/' + streamer + '?callback=?', function(object) {
       if (object.status === 422) { //Invalid Channel
         channel = streamer;
         logo = 'https://dl.dropbox.com/s/hryv6j9he297dw2/Octagon_delete.svg.png?dl=0';
-        $('#invalid-streams').append('<div class="stream-container"><div class="stream"><img src="' + logo + '"/><span class="channel">' + channel + '</span><span class="status">Invalid Account</span></div></div>');
+        $('#invalid-streams').append('<div class="stream-container"><div class="stream"><img src="' + logo + '"/><span class="channel">' + channel + '</span><span class="status">Invalid Account</span></div></div>');        
+        return;
       }
-      return;
     });
 
     $.getJSON('https://api.twitch.tv/kraken/streams/' + streamer + '?callback=?', function(object) {
