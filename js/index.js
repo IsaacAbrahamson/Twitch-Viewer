@@ -16,6 +16,27 @@ $(document).ready(function() {
       $('#embed').removeClass('hidden');
     }
   });
+  
+  //Event handler for Streamer Panel Mobile
+  var toggle = false;
+  $('.toggle').click(function() {
+    $('#side-panel').css('width', '240px');
+    $('#content').css('width', 'calc(100% - 240px)');
+    $('#content').css('margin-left', '240px');
+    $('#side-panel *').css('display','block');
+    $('.toggle').css('display','none');
+    toggle = true;
+  });
+  $('#content').click(function() {
+    if (toggle === true) {
+      $('#side-panel').css('width', '40px');
+      $('#content').css('width', 'calc(100% - 40px)');
+      $('#content').css('margin-left', '40px');
+      $('#side-panel *').css('display','none');
+      $('.toggle').css('display','block');
+      toggle = false;
+    }
+  });
 
   var streamers = ["cretetion", "freecodecamp", "storbeck", "brunofin", "ESL_SC2", "Bacon_Donut", "habathcx", "OgamingSC2", "RobotCaleb", "noobs2ninjas", "QuickyBaby", "terakilobyte", "thomasballinger", "comster404", "itmeJP", "ZeeooN", "HiRezTV", "Wyld", "BySliDe", "Armor_tv", "GronkhTV"];
   for (var index = 0; index < streamers.length; index++) {
