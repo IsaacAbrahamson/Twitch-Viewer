@@ -1,3 +1,19 @@
+* {
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  box-shadow: 0 0 1px 1px rgba(255, 255, 255, .25);
+  border-radius: 7px;
+}
+
 @font-face {
   font-family: twitch;
   src: url(https://dl.dropbox.com/s/g8677huroc13mtl/DIMIS___.TTF?dl=0);
@@ -8,13 +24,44 @@
   src: url(https://dl.dropbox.com/s/d2jfh70au9iyb1d/HeadlinerNo.45%20DEMO.ttf?dl=0);
 }
 
-* {
-  outline: none;
-  margin: 0;
-  padding: 0;
+#content {
+  position: absolute;
+  min-height: 100vh;
+  overflow: hidden;
+  width: calc(100% - 240px);
+  margin-left: 240px;  
 }
 
-/* Utility Classes */
+#content h3 {
+  font-size: 25px;
+  font-family: headliner, 'Open Sans';
+  line-height: 25px;
+}
+
+#content h1 {
+  font-family: headliner, 'Open Sans';
+  font-size: 80px;
+  line-height: 80px;
+}
+
+.header {
+  color: #cbc8d0;
+  font-size: 1.2rem;
+  margin-left: 15px;
+  margin-right: 15px;
+  text-transform: uppercase;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgb(46, 40, 60);
+}
+
+#side-panel {
+  width: 240px;  
+  transition: width .5s;
+  height: 100vh;
+  background-color: #17141f;
+  position: fixed;
+}
+
 .middle {
   position: absolute;
   top: 50%;
@@ -29,19 +76,13 @@
   text-align: center;
 }
 
+#streamer-panel {
+  overflow-y: scroll;
+  height: calc(100% - 126px);
+}
+
 .hidden {
   display: none;
-}
-
-/* Side Panel */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: black;
-  box-shadow: 0 0 1px 1px rgba(255, 255, 255, .25);
-  border-radius: 7px;
 }
 
 .logo {
@@ -119,57 +160,14 @@
   position: relative;
 }
 
-#side-panel {
-  width: 240px;
-  height: 100vh;
-  background-color: #17141f;
-  position: fixed;
-}
-
-#streamer-panel {
-  overflow-y: scroll;
-  height: calc(100% - 126px);
-}
-
 .square {
-  display: inline-block;
+  display: inline-block!important;
   width: 1.1rem;
   height: 1.1rem;
   background: #e61c1c;
   border: 1px solid black;
   position: relative;
   top: 2px;
-}
-
-/* Video Content */
-#content {
-  position: absolute;
-  min-height: 100vh;
-  overflow: hidden;
-  width: calc(100% - 240px);
-  margin-left: 240px;
-}
-
-#content h3 {
-  font-size: 25px;
-  font-family: headliner, 'Open Sans';
-  line-height: 25px;
-}
-
-#content h1 {
-  font-family: headliner, 'Open Sans';
-  font-size: 80px;
-  line-height: 80px;
-}
-
-.header {
-  color: #cbc8d0;
-  font-size: 1.2rem;
-  margin-left: 15px;
-  margin-right: 15px;
-  text-transform: uppercase;
-  padding-bottom: 7px;
-  border-bottom: 1px solid rgb(46, 40, 60);
 }
 
 #embed {
@@ -194,7 +192,26 @@
   height: 100%;
 }
 
-/* Shrink Side Panel */
+button {
+  position: fixed;
+  float: right;
+  margin-right: 15px;
+  display: inline-block;
+  background-color: #6441a5;
+  color: #fff;
+  line-height: 2.5em;
+  padding: 0 .8em;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  text-decoration: none;
+  background-color: #7550ba;
+}
+
 .toggle {
   display: none;
   font-size: 30px;
@@ -208,13 +225,13 @@
     width: 40px;
   }
   
-  .toggle {
-    display: block!important;
-  }
-  
-  #side-panel * {
+  #side-panel *:nth-child(n+2) {
     display: none;
   }
+  
+  .toggle {
+    display: block;
+  }  
   
   #content {
     margin-left: 40px;
