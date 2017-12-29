@@ -22,7 +22,6 @@ $(document).ready(function() {
     "comster404",
     "deethane",
     "ZeeooN",
-    "HiRezTV",
     "Wyld",
     "BySliDe",
     "scrubkillarl_",
