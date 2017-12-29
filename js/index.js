@@ -13,7 +13,7 @@ $(document).ready(function() {
     "ESL_SC2",
     "Bacon_Donut",
     "habathcx",
-    "CrashCreely",
+    "crashcreeley",
     "RobotCaleb",
     "noobs2ninjas",
     "QuickyBaby",
