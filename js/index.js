@@ -5,7 +5,30 @@ $(document).ready(function() {
   });
 
   //Get data from Twitch api
-  var streamers = ["cretetion", "freecodecamp", "storbeck", "brunofin", "ESL_SC2", "Bacon_Donut", "habathcx", "OgamingSC2", "RobotCaleb", "noobs2ninjas", "QuickyBaby", "terakilobyte", "thomasballinger", "comster404", "itmeJP", "ZeeooN", "HiRezTV", "Wyld", "BySliDe", "Armor_tv", "GronkhTV"];
+  var streamers = [
+    "cretetion",
+    "freecodecamp",
+    "jonsandman",
+    "rocket league",
+    "ESL_SC2",
+    "Bacon_Donut",
+    "habathcx",
+    "CrashCreely",
+    "RobotCaleb",
+    "noobs2ninjas",
+    "QuickyBaby",
+    "terakilobyte",
+    "thomasballinger",
+    "comster404",
+    "deethane",
+    "ZeeooN",
+    "HiRezTV",
+    "Wyld",
+    "BySliDe",
+    "scrubkillarl_",
+    "GronkhTV"
+  ];
+
   for (var index = 0; index < streamers.length; index++) {
     getStream(streamers[index]);
   }
@@ -50,7 +73,7 @@ $(document).ready(function() {
     var logo = '';
     var link = '';
 
-    $.getJSON('https://api.twitch.tv/kraken/channels/' + streamer + '?callback=?', function(object) {
+    $.getJSON('https://wind-bow.glitch.me/twitch-api/channels/' + streamer + '?callback=?', function(object) {
       if (object.status === 422) { //Invalid Channel
         channel = streamer;
         logo = 'https://dl.dropbox.com/s/hryv6j9he297dw2/Octagon_delete.svg.png?dl=0';
@@ -59,9 +82,9 @@ $(document).ready(function() {
       return;
     });
 
-    $.getJSON('https://api.twitch.tv/kraken/streams/' + streamer + '?callback=?', function(object) {
+    $.getJSON('https://wind-bow.glitch.me/twitch-api/streams/' + streamer + '?callback=?', function(object) {
       if (object.stream === null) { //Channel Offline
-        $.getJSON('https://api.twitch.tv/kraken/channels/' + streamer + '?callback=?', function(object) {
+        $.getJSON('https://wind-bow.glitch.me/twitch-api/channels/' + streamer + '?callback=?', function(object) {
           channel = object.name;
           game = 'Offline';
           logo = object.logo;
