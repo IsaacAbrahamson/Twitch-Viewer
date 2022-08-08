@@ -16,12 +16,12 @@
 
 @font-face {
   font-family: twitch;
-  src: url(https://dl.dropbox.com/s/g8677huroc13mtl/DIMIS___.TTF?dl=0);
+  src: url(../fonts/DIMIS___.TTF);
 }
 
 @font-face {
   font-family: headliner;
-  src: url(https://dl.dropbox.com/s/g8677huroc13mtl/DIMIS___.TTF?dl=0);
+  src: url(../fonts/DIMIS___.TTF);
 }
 
 /* Utility Classes */
@@ -45,7 +45,7 @@
 
 /* Side Panel */
 #side-panel {
-  width: 240px;  
+  width: 240px;
   transition: width .5s;
   height: 100vh;
   background-color: #17141f;
@@ -70,7 +70,7 @@
   background-color: rgb(34, 29, 45);
 }
 
-.stream-container:hover > span {
+.stream-container:hover>span {
   color: white;
 }
 
@@ -133,7 +133,7 @@
 }
 
 .square {
-  display: inline-block!important;
+  display: inline-block !important;
   width: 1.1rem;
   height: 1.1rem;
   background: #e61c1c;
@@ -156,7 +156,7 @@
   min-height: 100vh;
   overflow: hidden;
   width: calc(100% - 240px);
-  margin-left: 240px;  
+  margin-left: 240px;
 }
 
 #content h3 {
@@ -182,10 +182,10 @@
 }
 
 #embed {
-  max-height: 90%!important;  
+  max-height: 90% !important;
   margin-left: 20px;
-  margin-right: 20px; 
-  display: block; 
+  margin-right: 20px;
+  display: block;
 }
 
 .videowrapper {
@@ -208,15 +208,15 @@
   #side-panel {
     width: 40px;
   }
-  
+
   #side-panel *:nth-child(n+2) {
     display: none;
   }
-  
+
   .toggle {
     display: block;
-  }  
-  
+  }
+
   #content {
     margin-left: 40px;
     width: calc(100% - 40px);
@@ -379,6 +379,7 @@
     transform: scale(1);
     background-color: white;
   }
+
   100% {
     transform: scale(.3);
     background-color: rgb(117, 80, 186);
@@ -390,6 +391,7 @@
     -o-transform: scale(1);
     background-color: white;
   }
+
   100% {
     -o-transform: scale(.3);
     background-color: rgb(117, 80, 186);
@@ -401,6 +403,7 @@
     -ms-transform: scale(1);
     background-color: white;
   }
+
   100% {
     -ms-transform: scale(.3);
     background-color: rgb(117, 80, 186);
@@ -412,6 +415,7 @@
     -webkit-transform: scale(1);
     background-color: white;
   }
+
   100% {
     -webkit-transform: scale(.3);
     background-color: rgb(117, 80, 186);
@@ -423,6 +427,7 @@
     -moz-transform: scale(1);
     background-color: white;
   }
+
   100% {
     -moz-transform: scale(.3);
     background-color: rgb(117, 80, 186);
